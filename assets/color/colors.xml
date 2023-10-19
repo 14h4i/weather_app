@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#1f6b68</color>
+    <color name="primaryColorDark">#1f6b68</color>
+    <color name="backgroundColorPrimary">#FFFFFF</color>
+    <color name="backgroundColorSecondary">#f8f8f8</color>
+    <color name="greenSparateSecondary">#8BC19D</color>
+    <color name="greenMainPrimaryPale">#F0F9F3</color>
+    <color name="blueSparateSecondary">#87CEEB</color>
+    <color name="blueMainPrimaryPale">#B0E0E6</color>
+    <color name="greySparateSecondary">#CCCCCC</color>
+    <color name="greyMainPrimaryPale">#E0E0E0</color>
+    <color name="yellowSparateSecondary">#FFD700</color>
+    <color name="yellowMainPrimaryPale">#FFFACD</color>
+</resources>
