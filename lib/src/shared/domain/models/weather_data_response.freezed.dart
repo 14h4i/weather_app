@@ -20,6 +20,8 @@ WeatherDataResponse _$WeatherDataResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WeatherDataResponse {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   List<Weather> get weather => throw _privateConstructorUsedError;
   @JsonKey(name: 'main')
   Temperature get temperature => throw _privateConstructorUsedError;
@@ -37,7 +39,10 @@ abstract class $WeatherDataResponseCopyWith<$Res> {
       _$WeatherDataResponseCopyWithImpl<$Res, WeatherDataResponse>;
   @useResult
   $Res call(
-      {List<Weather> weather, @JsonKey(name: 'main') Temperature temperature});
+      {int id,
+      String name,
+      List<Weather> weather,
+      @JsonKey(name: 'main') Temperature temperature});
 
   $TemperatureCopyWith<$Res> get temperature;
 }
@@ -55,10 +60,20 @@ class _$WeatherDataResponseCopyWithImpl<$Res, $Val extends WeatherDataResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
+    Object? name = null,
     Object? weather = null,
     Object? temperature = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       weather: null == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
@@ -88,7 +103,10 @@ abstract class _$$WeatherDataResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Weather> weather, @JsonKey(name: 'main') Temperature temperature});
+      {int id,
+      String name,
+      List<Weather> weather,
+      @JsonKey(name: 'main') Temperature temperature});
 
   @override
   $TemperatureCopyWith<$Res> get temperature;
@@ -105,10 +123,20 @@ class __$$WeatherDataResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
+    Object? name = null,
     Object? weather = null,
     Object? temperature = null,
   }) {
     return _then(_$WeatherDataResponseImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       weather: null == weather
           ? _value._weather
           : weather // ignore: cast_nullable_to_non_nullable
@@ -126,7 +154,9 @@ class __$$WeatherDataResponseImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$WeatherDataResponseImpl extends _WeatherDataResponse {
   const _$WeatherDataResponseImpl(
-      {required final List<Weather> weather,
+      {required this.id,
+      required this.name,
+      required final List<Weather> weather,
       @JsonKey(name: 'main') required this.temperature})
       : _weather = weather,
         super._();
@@ -134,6 +164,10 @@ class _$WeatherDataResponseImpl extends _WeatherDataResponse {
   factory _$WeatherDataResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$WeatherDataResponseImplFromJson(json);
 
+  @override
+  final int id;
+  @override
+  final String name;
   final List<Weather> _weather;
   @override
   List<Weather> get weather {
@@ -148,7 +182,7 @@ class _$WeatherDataResponseImpl extends _WeatherDataResponse {
 
   @override
   String toString() {
-    return 'WeatherDataResponse(weather: $weather, temperature: $temperature)';
+    return 'WeatherDataResponse(id: $id, name: $name, weather: $weather, temperature: $temperature)';
   }
 
   @override
@@ -156,6 +190,8 @@ class _$WeatherDataResponseImpl extends _WeatherDataResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WeatherDataResponseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._weather, _weather) &&
             (identical(other.temperature, temperature) ||
                 other.temperature == temperature));
@@ -163,8 +199,8 @@ class _$WeatherDataResponseImpl extends _WeatherDataResponse {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_weather), temperature);
+  int get hashCode => Object.hash(runtimeType, id, name,
+      const DeepCollectionEquality().hash(_weather), temperature);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +219,9 @@ class _$WeatherDataResponseImpl extends _WeatherDataResponse {
 
 abstract class _WeatherDataResponse extends WeatherDataResponse {
   const factory _WeatherDataResponse(
-          {required final List<Weather> weather,
+          {required final int id,
+          required final String name,
+          required final List<Weather> weather,
           @JsonKey(name: 'main') required final Temperature temperature}) =
       _$WeatherDataResponseImpl;
   const _WeatherDataResponse._() : super._();
@@ -191,6 +229,10 @@ abstract class _WeatherDataResponse extends WeatherDataResponse {
   factory _WeatherDataResponse.fromJson(Map<String, dynamic> json) =
       _$WeatherDataResponseImpl.fromJson;
 
+  @override
+  int get id;
+  @override
+  String get name;
   @override
   List<Weather> get weather;
   @override

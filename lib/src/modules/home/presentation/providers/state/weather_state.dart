@@ -12,7 +12,8 @@ class WeatherState with _$WeatherState {
   const factory WeatherState.loading() = WeatherStateLoading;
 
   const factory WeatherState.data({
-    required List<Weather> weather,
+    required String cityName,
+    required List<Weather> weathers,
     required Temperature temperature,
   }) = WeatherStateData;
 

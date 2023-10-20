@@ -9,6 +9,8 @@ part of 'weather_data_response.dart';
 _$WeatherDataResponseImpl _$$WeatherDataResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$WeatherDataResponseImpl(
+      id: json['id'] as int,
+      name: json['name'] as String,
       weather: (json['weather'] as List<dynamic>)
           .map((e) => Weather.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -18,6 +20,8 @@ _$WeatherDataResponseImpl _$$WeatherDataResponseImplFromJson(
 Map<String, dynamic> _$$WeatherDataResponseImplToJson(
         _$WeatherDataResponseImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
       'weather': instance.weather,
       'main': instance.temperature,
     };

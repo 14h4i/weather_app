@@ -6,18 +6,6 @@ const mediumLetterSpacing = 0.04;
 const largeLetterSpacing = 1.0;
 
 final ThemeData defaultTheme = ThemeData(
-  primarySwatch: MaterialColor(ColorName.primaryColor.value, const <int, Color>{
-    50: ColorName.primaryColor,
-    100: ColorName.primaryColor,
-    200: ColorName.primaryColor,
-    300: ColorName.primaryColor,
-    400: ColorName.primaryColor,
-    500: ColorName.primaryColor,
-    600: ColorName.primaryColor,
-    700: ColorName.primaryColor,
-    800: ColorName.primaryColor,
-    900: ColorName.primaryColor,
-  }),
   scaffoldBackgroundColor: ColorName.backgroundColorPrimary,
   appBarTheme: const AppBarTheme(
     centerTitle: false,
@@ -27,11 +15,9 @@ final ThemeData defaultTheme = ThemeData(
       color: Colors.black,
       fontWeight: FontWeight.w700,
     ),
-    iconTheme: IconThemeData(color: ColorName.primaryColor),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: ColorName.backgroundColorPrimary,
-    selectedItemColor: ColorName.primaryColor,
     selectedLabelStyle: TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: 16,
@@ -40,9 +26,6 @@ final ThemeData defaultTheme = ThemeData(
       fontWeight: FontWeight.w700,
       fontSize: 16,
     ),
-  ),
-  buttonTheme: const ButtonThemeData(
-    buttonColor: ColorName.primaryColor,
   ),
   textTheme: _buildTextTheme(),
 );

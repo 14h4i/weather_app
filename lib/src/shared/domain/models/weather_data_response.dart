@@ -9,6 +9,8 @@ part 'weather_data_response.g.dart';
 class WeatherDataResponse with _$WeatherDataResponse {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory WeatherDataResponse({
+    required int id,
+    required String name,
     required List<Weather> weather,
     @JsonKey(name: 'main') required Temperature temperature,
   }) = _WeatherDataResponse;

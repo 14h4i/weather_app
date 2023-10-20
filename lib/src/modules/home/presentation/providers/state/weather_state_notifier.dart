@@ -23,13 +23,14 @@ class WeatherStateNotifier extends StateNotifier<WeatherState> {
       final response = await weatherRepository.getWeatherByCity(city);
 
       newState = WeatherState.data(
-        weather: response.weather,
+        cityName: response.name,
+        weathers: response.weather,
         temperature: response.temperature,
       );
     } on DioException catch (e) {
       newState = WeatherState.error(
         error: AppException(
-          message: e.message ?? 'something when wrong',
+          message: e.message ?? 'something went wrong',
           statusCode: e.response?.statusCode,
         ),
       );
@@ -42,7 +43,7 @@ class WeatherStateNotifier extends StateNotifier<WeatherState> {
 
   bool _isIdle() {
     return state.when(
-      data: (_, __) {
+      data: (_, __, ___) {
         return true;
       },
       uninitialized: () {

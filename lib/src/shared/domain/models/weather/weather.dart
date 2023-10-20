@@ -30,8 +30,7 @@ class Weather with _$Weather {
       weatherCondition.name[0].toUpperCase() +
       weatherCondition.name.substring(1);
 
-  Widget get icon =>
-      CachedNetworkImage(imageUrl: '${AppConfigs.iconWeatherUrl}$iconCode.png');
+  String get iconUrl => '${AppConfigs.iconWeatherUrl}$iconCode@4x.png';
 }
 
 class ConditionEnumConverter implements JsonConverter<Condition, String> {

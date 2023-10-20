@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/src/modules/home/presentation/providers/weather_providers.dart';
+import 'package:weather_app/src/modules/home/presentation/widgets/enter_city_widget.dart';
+import 'package:weather_app/src/modules/home/presentation/widgets/weather_card_widget.dart';
 import 'package:weather_app/src/shared/components/error/error_msg.dart';
 import 'package:weather_app/src/shared/components/loading/loading.dart';
 
@@ -12,71 +15,39 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
-  final controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(weatherStateNotifierProvider);
     final notifier = ref.read(weatherStateNotifierProvider.notifier);
+    final resource = Resource.of(context);
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Weather App',
-          style: TextStyle(fontSize: 30),
+        title: Text(
+          resource.appName,
+          style: const TextStyle(fontSize: 30),
         ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Enter City:',
-              style: TextStyle(fontSize: 20),
-            ),
+            EnterCity(onSubmit: notifier.fetch),
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: TextFormField(
-                controller: controller,
-                decoration: const InputDecoration(
-                  hintText: 'Enter your city',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                notifier.fetch(controller.text);
-              },
-              child: const Text('Get Weather'),
-            ),
-            const SizedBox(height: 20),
-            // Display Weather Information Here (Temperature and Condition)
             Container(
               child: state.when(
                 uninitialized: SizedBox.new,
                 loading: Loading.new,
-                data: (weather, temperature) {
-                  return Column(
-                    children: [
-                      Text(
-                        'Temperature: ${temperature.temp}°K',
-                        style: const TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Condition: ${weather.first.condition}',
-                        style: const TextStyle(fontSize: 24),
-                      ),
-                      weather.first.icon,
-                    ],
+                data: (cityName, weathers, temperature) {
+                  return WeatherCard(
+                    cityName: cityName,
+                    weather: weathers.first,
+                    temperature: temperature,
                   );
                 },
                 error: (error) => ErrorMsg(
                   exception: error,
-                  onRetry: () {},
                 ),
               ),
             ),

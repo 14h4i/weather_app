@@ -4,12 +4,12 @@ import 'package:weather_app/src/shared/exceptions/app_exception.dart';
 class ErrorMsg extends StatelessWidget {
   const ErrorMsg({
     required this.exception,
-    required this.onRetry,
+    this.onRetry,
     super.key,
   });
 
   final AppException exception;
-  final void Function() onRetry;
+  final void Function()? onRetry;
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,8 @@ mixin _$WeatherState {
   TResult when<TResult extends Object?>({
     required TResult Function() uninitialized,
     required TResult Function() loading,
-    required TResult Function(List<Weather> weather, Temperature temperature)
+    required TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)
         data,
     required TResult Function(AppException error) error,
   }) =>
@@ -29,7 +30,9 @@ mixin _$WeatherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uninitialized,
     TResult? Function()? loading,
-    TResult? Function(List<Weather> weather, Temperature temperature)? data,
+    TResult? Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult? Function(AppException error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +40,9 @@ mixin _$WeatherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uninitialized,
     TResult Function()? loading,
-    TResult Function(List<Weather> weather, Temperature temperature)? data,
+    TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) =>
@@ -130,7 +135,8 @@ class _$WeatherStateUninitializedImpl implements WeatherStateUninitialized {
   TResult when<TResult extends Object?>({
     required TResult Function() uninitialized,
     required TResult Function() loading,
-    required TResult Function(List<Weather> weather, Temperature temperature)
+    required TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)
         data,
     required TResult Function(AppException error) error,
   }) {
@@ -142,7 +148,9 @@ class _$WeatherStateUninitializedImpl implements WeatherStateUninitialized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uninitialized,
     TResult? Function()? loading,
-    TResult? Function(List<Weather> weather, Temperature temperature)? data,
+    TResult? Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult? Function(AppException error)? error,
   }) {
     return uninitialized?.call();
@@ -153,7 +161,9 @@ class _$WeatherStateUninitializedImpl implements WeatherStateUninitialized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uninitialized,
     TResult Function()? loading,
-    TResult Function(List<Weather> weather, Temperature temperature)? data,
+    TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {
@@ -246,7 +256,8 @@ class _$WeatherStateLoadingImpl implements WeatherStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() uninitialized,
     required TResult Function() loading,
-    required TResult Function(List<Weather> weather, Temperature temperature)
+    required TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)
         data,
     required TResult Function(AppException error) error,
   }) {
@@ -258,7 +269,9 @@ class _$WeatherStateLoadingImpl implements WeatherStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uninitialized,
     TResult? Function()? loading,
-    TResult? Function(List<Weather> weather, Temperature temperature)? data,
+    TResult? Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult? Function(AppException error)? error,
   }) {
     return loading?.call();
@@ -269,7 +282,9 @@ class _$WeatherStateLoadingImpl implements WeatherStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uninitialized,
     TResult Function()? loading,
-    TResult Function(List<Weather> weather, Temperature temperature)? data,
+    TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {
@@ -327,7 +342,7 @@ abstract class _$$WeatherStateDataImplCopyWith<$Res> {
           $Res Function(_$WeatherStateDataImpl) then) =
       __$$WeatherStateDataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Weather> weather, Temperature temperature});
+  $Res call({String cityName, List<Weather> weathers, Temperature temperature});
 
   $TemperatureCopyWith<$Res> get temperature;
 }
@@ -343,13 +358,18 @@ class __$$WeatherStateDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? weather = null,
+    Object? cityName = null,
+    Object? weathers = null,
     Object? temperature = null,
   }) {
     return _then(_$WeatherStateDataImpl(
-      weather: null == weather
-          ? _value._weather
-          : weather // ignore: cast_nullable_to_non_nullable
+      cityName: null == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      weathers: null == weathers
+          ? _value._weathers
+          : weathers // ignore: cast_nullable_to_non_nullable
               as List<Weather>,
       temperature: null == temperature
           ? _value.temperature
@@ -371,15 +391,19 @@ class __$$WeatherStateDataImplCopyWithImpl<$Res>
 
 class _$WeatherStateDataImpl implements WeatherStateData {
   const _$WeatherStateDataImpl(
-      {required final List<Weather> weather, required this.temperature})
-      : _weather = weather;
+      {required this.cityName,
+      required final List<Weather> weathers,
+      required this.temperature})
+      : _weathers = weathers;
 
-  final List<Weather> _weather;
   @override
-  List<Weather> get weather {
-    if (_weather is EqualUnmodifiableListView) return _weather;
+  final String cityName;
+  final List<Weather> _weathers;
+  @override
+  List<Weather> get weathers {
+    if (_weathers is EqualUnmodifiableListView) return _weathers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_weather);
+    return EqualUnmodifiableListView(_weathers);
   }
 
   @override
@@ -387,7 +411,7 @@ class _$WeatherStateDataImpl implements WeatherStateData {
 
   @override
   String toString() {
-    return 'WeatherState.data(weather: $weather, temperature: $temperature)';
+    return 'WeatherState.data(cityName: $cityName, weathers: $weathers, temperature: $temperature)';
   }
 
   @override
@@ -395,14 +419,16 @@ class _$WeatherStateDataImpl implements WeatherStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WeatherStateDataImpl &&
-            const DeepCollectionEquality().equals(other._weather, _weather) &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName) &&
+            const DeepCollectionEquality().equals(other._weathers, _weathers) &&
             (identical(other.temperature, temperature) ||
                 other.temperature == temperature));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_weather), temperature);
+  int get hashCode => Object.hash(runtimeType, cityName,
+      const DeepCollectionEquality().hash(_weathers), temperature);
 
   @JsonKey(ignore: true)
   @override
@@ -416,11 +442,12 @@ class _$WeatherStateDataImpl implements WeatherStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() uninitialized,
     required TResult Function() loading,
-    required TResult Function(List<Weather> weather, Temperature temperature)
+    required TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)
         data,
     required TResult Function(AppException error) error,
   }) {
-    return data(weather, temperature);
+    return data(cityName, weathers, temperature);
   }
 
   @override
@@ -428,10 +455,12 @@ class _$WeatherStateDataImpl implements WeatherStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uninitialized,
     TResult? Function()? loading,
-    TResult? Function(List<Weather> weather, Temperature temperature)? data,
+    TResult? Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult? Function(AppException error)? error,
   }) {
-    return data?.call(weather, temperature);
+    return data?.call(cityName, weathers, temperature);
   }
 
   @override
@@ -439,12 +468,14 @@ class _$WeatherStateDataImpl implements WeatherStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uninitialized,
     TResult Function()? loading,
-    TResult Function(List<Weather> weather, Temperature temperature)? data,
+    TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(weather, temperature);
+      return data(cityName, weathers, temperature);
     }
     return orElse();
   }
@@ -489,10 +520,12 @@ class _$WeatherStateDataImpl implements WeatherStateData {
 
 abstract class WeatherStateData implements WeatherState {
   const factory WeatherStateData(
-      {required final List<Weather> weather,
+      {required final String cityName,
+      required final List<Weather> weathers,
       required final Temperature temperature}) = _$WeatherStateDataImpl;
 
-  List<Weather> get weather;
+  String get cityName;
+  List<Weather> get weathers;
   Temperature get temperature;
   @JsonKey(ignore: true)
   _$$WeatherStateDataImplCopyWith<_$WeatherStateDataImpl> get copyWith =>
@@ -566,7 +599,8 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() uninitialized,
     required TResult Function() loading,
-    required TResult Function(List<Weather> weather, Temperature temperature)
+    required TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)
         data,
     required TResult Function(AppException error) error,
   }) {
@@ -578,7 +612,9 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uninitialized,
     TResult? Function()? loading,
-    TResult? Function(List<Weather> weather, Temperature temperature)? data,
+    TResult? Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult? Function(AppException error)? error,
   }) {
     return error?.call(this.error);
@@ -589,7 +625,9 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uninitialized,
     TResult Function()? loading,
-    TResult Function(List<Weather> weather, Temperature temperature)? data,
+    TResult Function(
+            String cityName, List<Weather> weathers, Temperature temperature)?
+        data,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {

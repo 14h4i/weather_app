@@ -24,5 +24,15 @@
   "errorInternetConnection": "Please check the internet connection",
   "@errorInternetConnection": {},
   "retry": "Retry",
-  "@retry": {}
+  "@retry": {},
+  "totay": "Today,",
+  "@totay": {},
+  "enterInformation": "Enter city name for weather information",
+  "@enterInformation": {},
+  "enterYourCity": "Enter your city",
+  "@enterYourCity": {},
+  "notEmpty": "Not empty",
+  "@notEmpty": {},
+  "getWeather": "Get Weather",
+  "@getWeather": {}
 }
