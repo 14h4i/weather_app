@@ -16,7 +16,6 @@ class Weather with _$Weather {
     required Condition weatherCondition,
     required String description,
     @JsonKey(name: 'icon') required String iconCode,
-    String? reason,
   }) = _Weather;
 
   const Weather._();
