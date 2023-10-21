@@ -41,6 +41,18 @@ Clean Architecture provides an organized structure for your project, making appl
 ## State Management with Flutter Riverpod
 Flutter Riverpod is used for efficient state management within the application. This ensures a robust mechanism for tracking and updating the application's state.
 
+
+## Home Screen
+The Home screen is the central feature of the application and includes the following functionalities:
+
+An input field where users can enter a city name or position.
+A toggle button that allows users to switch between two methods of retrieving weather information (by city name or position).
+A "Get Weather" button for initiating the weather data retrieval process.
+
+| <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/screenshots/screenshot1.png" width="360" /> | <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/screenshots/screenshot2.png" width="360" /> |
+| :------------: | :------------: |
+| **By City** | **By Position** |
+
 ## Route Management with [go_router](https://pub.dev/packages/go_router)
 The application benefits from go_router for route management, enabling precise navigation between different screens and features.
 
@@ -254,17 +266,6 @@ class TimeoutError extends DioException {
   TimeoutError(RequestOptions r) : super(requestOptions: r);
 }
 ```
-
-## Home Screen
-The Home screen is the central feature of the application and includes the following functionalities:
-
-An input field where users can enter a city name or position.
-A toggle button that allows users to switch between two methods of retrieving weather information (by city name or position).
-A "Get Weather" button for initiating the weather data retrieval process.
-
-| <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/screenshots/Screenshot_1.png" width="360" /> | <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/screenshots/Screenshot_2.png" width="360" /> |
-| :------------: | :------------: |
-| **By City** | **By Position** |
 
 ## Installation and Setup
 To install and run the application, follow these steps:
