@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/res.dart';
 import 'package:weather_app/src/modules/home/presentation/widgets/temperature_widget.dart';
 import 'package:weather_app/src/shared/domain/models/temperature/temperature.dart';
 import 'package:weather_app/src/shared/domain/models/weather/weather.dart';
@@ -19,9 +20,11 @@ class WeatherCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resource = Resource.of(context);
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -38,9 +41,9 @@ class WeatherCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Today,',
-                style: TextStyle(
+              Text(
+                resource.today,
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w700,
                 ),

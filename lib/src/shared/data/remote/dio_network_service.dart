@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:weather_app/src/configs/app_configs.dart';
 import 'package:weather_app/src/shared/data/remote/network_service.dart';
+import 'package:weather_app/src/shared/domain/interceptors/api_error_interceptor.dart';
 import 'package:weather_app/src/shared/utils/globals.dart';
 
 class DioNetworkService extends NetworkService {
@@ -14,6 +17,28 @@ class DioNetworkService extends NetworkService {
             .add(LogInterceptor(requestBody: true, responseBody: true));
       }
     }
+    dio.interceptors.add(AppErrorInterceptors());
+    assert(
+      () {
+        dio.interceptors.add(
+          InterceptorsWrapper(
+            onRequest: (options, handler) {
+              log('#onRequest');
+              return handler.next(options); //continue
+            },
+            onResponse: (response, handler) {
+              log('#onResponse');
+              return handler.next(response); // continue
+            },
+            onError: (e, handler) {
+              log('#onError ${e.response}');
+              return handler.next(e); //continue
+            },
+          ),
+        );
+        return true;
+      }(),
+    );
   }
 
   final Dio dio;

@@ -1,38 +1,34 @@
 {
   "helloWorld": "Hello World!",
-  "@helloWorld": {},
   "appName": "Weather App",
-  "@appName": {},
   "popular": "Popular weather",
-  "@popular": {},
   "myList": "My List",
-  "@myList": {},
   "year": "Year",
-  "@year": {},
   "country": "Country",
-  "@country": {},
   "cannotSupport": "Cannot support",
-  "@cannotSupport": {},
   "length": "Length",
-  "@length": {},
   "screenshot": "Screenshots",
-  "@screenshot": {},
   "cancel": "Cancel",
-  "@cancel": {},
   "ok": "OK",
-  "@ok": {},
   "errorInternetConnection": "Please check the internet connection",
-  "@errorInternetConnection": {},
   "retry": "Retry",
-  "@retry": {},
-  "totay": "Today,",
-  "@totay": {},
+  "today": "Today,",
   "enterInformation": "Enter city name for weather information",
-  "@enterInformation": {},
-  "enterYourCity": "Enter your city",
-  "@enterYourCity": {},
-  "notEmpty": "Not empty",
-  "@notEmpty": {},
+  "enterPosition": "Enter position for weather information",
+  "cityName": "City Name",
+  "latitude": "Latitude",
+  "longitude": "Longitude",
+  "byCity": "By City",
+  "byPosition": "By Position",
+  "notEmpty": "Not Empty",
+  "error": "Error",
   "getWeather": "Get Weather",
-  "@getWeather": {}
+  "errorCode": "Error Code\n【{code}】",
+  "@errorCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  }
 }

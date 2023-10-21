@@ -1,8 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/src/modules/home/domain/repositories/weather_repository.dart';
 import 'package:weather_app/src/modules/home/presentation/providers/state/weather_state.dart';
-import 'package:weather_app/src/shared/exceptions/app_exception.dart';
 
 class WeatherStateNotifier extends StateNotifier<WeatherState> {
   WeatherStateNotifier(
@@ -11,7 +9,7 @@ class WeatherStateNotifier extends StateNotifier<WeatherState> {
 
   final WeatherRepository weatherRepository;
 
-  Future<void> fetch(String city) async {
+  Future<void> fetchByCity(String city) async {
     if (!_isIdle()) {
       return;
     }
@@ -27,15 +25,34 @@ class WeatherStateNotifier extends StateNotifier<WeatherState> {
         weathers: response.weather,
         temperature: response.temperature,
       );
-    } on DioException catch (e) {
-      newState = WeatherState.error(
-        error: AppException(
-          message: e.message ?? 'something went wrong',
-          statusCode: e.response?.statusCode,
-        ),
+    } on Exception catch (e) {
+      newState = WeatherState.error(error: e);
+    }
+
+    state = newState;
+  }
+
+  Future<void> fetchByPosition(String lat, String lon) async {
+    if (!_isIdle()) {
+      return;
+    }
+
+    state = const WeatherState.loading();
+
+    WeatherState newState;
+    try {
+      final response = await weatherRepository.getWeatherByPosition(
+        double.parse(lat),
+        double.parse(lon),
+      );
+
+      newState = WeatherState.data(
+        cityName: response.name,
+        weathers: response.weather,
+        temperature: response.temperature,
       );
     } on Exception catch (e) {
-      newState = WeatherState.error(error: AppException(message: e.toString()));
+      newState = WeatherState.error(error: e);
     }
 
     state = newState;

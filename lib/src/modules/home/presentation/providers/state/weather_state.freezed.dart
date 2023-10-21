@@ -23,7 +23,7 @@ mixin _$WeatherState {
     required TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)
         data,
-    required TResult Function(AppException error) error,
+    required TResult Function(Exception error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$WeatherState {
     TResult? Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult? Function(AppException error)? error,
+    TResult? Function(Exception error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$WeatherState {
     TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult Function(AppException error)? error,
+    TResult Function(Exception error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,7 +138,7 @@ class _$WeatherStateUninitializedImpl implements WeatherStateUninitialized {
     required TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)
         data,
-    required TResult Function(AppException error) error,
+    required TResult Function(Exception error) error,
   }) {
     return uninitialized();
   }
@@ -151,7 +151,7 @@ class _$WeatherStateUninitializedImpl implements WeatherStateUninitialized {
     TResult? Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult? Function(AppException error)? error,
+    TResult? Function(Exception error)? error,
   }) {
     return uninitialized?.call();
   }
@@ -164,7 +164,7 @@ class _$WeatherStateUninitializedImpl implements WeatherStateUninitialized {
     TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult Function(AppException error)? error,
+    TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (uninitialized != null) {
@@ -259,7 +259,7 @@ class _$WeatherStateLoadingImpl implements WeatherStateLoading {
     required TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)
         data,
-    required TResult Function(AppException error) error,
+    required TResult Function(Exception error) error,
   }) {
     return loading();
   }
@@ -272,7 +272,7 @@ class _$WeatherStateLoadingImpl implements WeatherStateLoading {
     TResult? Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult? Function(AppException error)? error,
+    TResult? Function(Exception error)? error,
   }) {
     return loading?.call();
   }
@@ -285,7 +285,7 @@ class _$WeatherStateLoadingImpl implements WeatherStateLoading {
     TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult Function(AppException error)? error,
+    TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -445,7 +445,7 @@ class _$WeatherStateDataImpl implements WeatherStateData {
     required TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)
         data,
-    required TResult Function(AppException error) error,
+    required TResult Function(Exception error) error,
   }) {
     return data(cityName, weathers, temperature);
   }
@@ -458,7 +458,7 @@ class _$WeatherStateDataImpl implements WeatherStateData {
     TResult? Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult? Function(AppException error)? error,
+    TResult? Function(Exception error)? error,
   }) {
     return data?.call(cityName, weathers, temperature);
   }
@@ -471,7 +471,7 @@ class _$WeatherStateDataImpl implements WeatherStateData {
     TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult Function(AppException error)? error,
+    TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -538,7 +538,7 @@ abstract class _$$WeatherStateErrorImplCopyWith<$Res> {
           $Res Function(_$WeatherStateErrorImpl) then) =
       __$$WeatherStateErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AppException error});
+  $Res call({Exception error});
 }
 
 /// @nodoc
@@ -558,7 +558,7 @@ class __$$WeatherStateErrorImplCopyWithImpl<$Res>
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as AppException,
+              as Exception,
     ));
   }
 }
@@ -569,7 +569,7 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
   const _$WeatherStateErrorImpl({required this.error});
 
   @override
-  final AppException error;
+  final Exception error;
 
   @override
   String toString() {
@@ -602,7 +602,7 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
     required TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)
         data,
-    required TResult Function(AppException error) error,
+    required TResult Function(Exception error) error,
   }) {
     return error(this.error);
   }
@@ -615,7 +615,7 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
     TResult? Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult? Function(AppException error)? error,
+    TResult? Function(Exception error)? error,
   }) {
     return error?.call(this.error);
   }
@@ -628,7 +628,7 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
     TResult Function(
             String cityName, List<Weather> weathers, Temperature temperature)?
         data,
-    TResult Function(AppException error)? error,
+    TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -676,10 +676,10 @@ class _$WeatherStateErrorImpl implements WeatherStateError {
 }
 
 abstract class WeatherStateError implements WeatherState {
-  const factory WeatherStateError({required final AppException error}) =
+  const factory WeatherStateError({required final Exception error}) =
       _$WeatherStateErrorImpl;
 
-  AppException get error;
+  Exception get error;
   @JsonKey(ignore: true)
   _$$WeatherStateErrorImplCopyWith<_$WeatherStateErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;

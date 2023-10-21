@@ -9,5 +9,9 @@ class WeatherRepositoryImpl extends WeatherRepository {
 
   @override
   Future<WeatherDataResponse> getWeatherByCity(String city) =>
-      weatherDatasource.get(city);
+      weatherDatasource.getByCity(city);
+
+  @override
+  Future<WeatherDataResponse> getWeatherByPosition(double lat, double lon) =>
+      weatherDatasource.getByPosition(lat, lon);
 }

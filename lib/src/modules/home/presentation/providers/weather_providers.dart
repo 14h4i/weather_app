@@ -11,3 +11,7 @@ final weatherStateNotifierProvider =
     return WeatherStateNotifier(repository);
   },
 );
+
+enum TypeSearch { city, position }
+
+final typeSearchProvider = StateProvider<TypeSearch>((ref) => TypeSearch.city);
