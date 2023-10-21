@@ -292,6 +292,22 @@ class AppConfigs {
 
 5. Run the application using the `flutter run` command.
 
+## Testing
+
+Unit testing and integration testing are essential aspects of software development to ensure the correctness and reliability of your application. To run tests for this Flutter project, follow these steps:
+
+### Testing
+
+Unit tests are designed to validate individual components of your application, ensuring they work as expected. To run the unit tests for your project, follow these steps:
+
+Run the following command to execute all the unit tests:
+
+```bash
+flutter test
+```
+
+This command will discover and run all the unit tests in your project, including the tests written for various components such as the `WeatherStateNotifier`. The results of the tests will be displayed in the terminal.
+
 ## External Libraries and APIs
 The following libraries and APIs are used in this project:
 
