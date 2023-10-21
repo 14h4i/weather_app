@@ -4,6 +4,9 @@
 
 Weather App is a Flutter mobile application that fetches and displays current weather information for a given location. Users can obtain weather details using either the city name or position (latitude and longitude). The application leverages a range of technologies and libraries, including Flutter Riverpod for state management, Clean Architecture for code organization, go_router for route management, and Dio for making API calls to openweathermap.org.
 
+https://github.com/14h4i/weather_app/assets/84112780/f670462d-6cb6-4ca6-a67b-861108e83b7b
+
+
 ## Environment
 
 ```shell
@@ -49,7 +52,7 @@ An input field where users can enter a city name or position.
 A toggle button that allows users to switch between two methods of retrieving weather information (by city name or position).
 A "Get Weather" button for initiating the weather data retrieval process.
 
-| <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/screenshots/screenshot1.png" width="360" /> | <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/screenshots/screenshot2.png" width="360" /> |
+| <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/resources/screenshot1.png" width="360" /> | <img src="https://raw.githubusercontent.com/14h4i/weather_app/main/resources/screenshot2.png" width="360" /> |
 | :------------: | :------------: |
 | **By City** | **By Position** |
 
